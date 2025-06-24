@@ -9,7 +9,7 @@ import ollama
 app = FastAPI()
 
 # Get input from user- compatible with FastAPI
-# Middleman 
+# Middleman
 app.add_middleware(
     CORSMiddleware,
     # Allows all origins
@@ -47,7 +47,7 @@ async def mcp_handler(request: MCPRequest):
         return {"output": USERS.get(user_id, {"error": "User not found"})}
     elif request.input == "list-users":
         return {"output": list(USERS.keys())}
-    # This integrates llama3 into 
+    # This integrates llama3 
     elif request.input == "llama-chat":
         prompt = request.parameters.get("prompt", "")
         resp = ollama.chat(
