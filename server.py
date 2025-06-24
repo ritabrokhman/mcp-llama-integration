@@ -1,20 +1,27 @@
+# 
 from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import Optional
 from fastapi.middleware.cors import CORSMiddleware
 import ollama
 
+# Creates web app only on machine 
 app = FastAPI()
 
+# Get input from user- compatible with FastAPI
+# Middleman 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allows all origins
+    # Allows all origins
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 # Mock user data
+# Test tool 
+# Remove later
 USERS = {
     "rita": {"name": "Rita Brokhman", "role": "Tech Architecture Analyst", "location": "Columbus"},
     "katie": {"name": "Katie Holcomb", "role": "Software Product Mgmt Manager", "location": "Columbus"},
@@ -23,10 +30,14 @@ USERS = {
 }
 
 # Request schema
+# front end, determines what can be inputted
 class MCPRequest(BaseModel):
     input: str
+    # Optional, can make not optional
     parameters: Optional[dict] = {}
 
+# Defines logic 
+# Post transfers user input for tool into respective output
 @app.post("/mcp")
 async def mcp_handler(request: MCPRequest):
     if request.input == "hello-world":
@@ -36,6 +47,7 @@ async def mcp_handler(request: MCPRequest):
         return {"output": USERS.get(user_id, {"error": "User not found"})}
     elif request.input == "list-users":
         return {"output": list(USERS.keys())}
+    # This integrates llama3 into 
     elif request.input == "llama-chat":
         prompt = request.parameters.get("prompt", "")
         resp = ollama.chat(
