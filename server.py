@@ -17,7 +17,8 @@ app.add_middleware(
 # Mock user data
 USERS = {
     "rita": {"name": "Rita Brokhman", "role": "Tech Architecture Analyst", "location": "Columbus"},
-    "katie": {"name": "Katie Holcomb", "role": "Software Product Mgmt Manager", "location": "Columbus"}
+    "katie": {"name": "Katie Holcomb", "role": "Software Product Mgmt Manager", "location": "Columbus"},
+    "sawyer": {"name": "Sawyer Cartwright", "role": "Software Engineer", "location": "Columbus"}
 }
 
 # Request schema
