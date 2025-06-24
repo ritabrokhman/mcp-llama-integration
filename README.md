@@ -13,3 +13,16 @@ popup on source control
 enter comment about changes
 click committ
 
+
+1. Project Title and Description
+
+2. Installation
+
+3. Features
+
+4. Example Usage
+
+5. Troubleshooting
+
+6. Contributing
+
