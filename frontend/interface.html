@@ -7,12 +7,58 @@
 
     <!--Defines CSS styles (font, spacing, colors)-->
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        h1, h2 { color: #333; }
-        label { display: block; margin-top: 10px; }
-        input[type="text"], select { width: 300px; padding: 5px; margin-top: 5px; }
-        input[type="submit"] { margin-top: 10px; padding: 5px 10px; }
-        pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; max-width: 700px; white-space: pre-wrap; }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+
+    h1 {
+        color: #333;
+        font-size: 28px; 
+    }
+    h2 {
+        color: #333;
+        font-size: 20px; 
+    }
+
+    label {
+        display: block;
+        margin-top: 10px;
+        font-size: 14px; 
+    }
+
+    input[type="text"],
+    select {
+        width: 300px;
+        padding: 5px;
+        margin-top: 5px;
+        font-size: 14px;
+        color: #000;
+        background-color: #fff;
+        border: 1px solid #ccc; 
+        box-shadow: none;
+    }
+
+    input[type="submit"] {
+        margin-top: 10px;
+        padding: 5px 10px;
+        background-color: #007BFF;
+        color: white;
+        font-size: 14px;
+        border: none; 
+    }
+
+    pre {
+        background-color: #f4f4f4;
+        padding: 10px;
+        max-width: 700px;
+        white-space: pre-wrap;
+        font-size: 14px; 
+    }
+
+    ul {
+        font-size: 14px; 
+    }
     </style>
 
 </head>
@@ -26,19 +72,19 @@
         <!--Dropdown for select tool-->
         <label for="toolSelect">Select Tool:</label>
         <select id="toolSelect" name="input">
-            <option value="get-user">get-user</option>
-            <option value="list-users">list-users</option>
-            <option value="llama-chat">llama-chat</option>
+            <option value="get-user">Get User</option>
+            <option value="list-users">List Users</option>
+            <option value="llama-chat">Llama Chat</option>
         </select>
         <!--Text input field for entering parameters for the userID tool-->
         <div id="userIdField">
-            <label for="user_id">User ID (parameters.user_id):</label>
-            <input type="text" id="user_id" name="user_id" value="rita">
+            <label for="user_id">User ID:</label>
+            <input type="text" id="user_id" name="user_id" placeholder="Enter User ID...">
         </div>
         <!--Text input field for entering prompt for llama chat tool-->
         <div id="chatPromptField" style="display:none;">
-            <label for="chat_prompt">Chat Prompt (parameters.prompt):</label>
-            <input type="text" id="chat_prompt" name="chat_prompt" placeholder="Ask something...">
+            <label for="chat_prompt">Prompt:</label>
+            <input type="text" id="chat_prompt" name="chat_prompt" placeholder="Enter Prompt...">
         </div>
         <!--Submit button to send request-->
         <input type="submit" value="Send Request">
