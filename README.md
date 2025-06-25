@@ -1,3 +1,29 @@
+# **MCP Server README File**
+
+## **Introduction**
+
+## **Installation**
+
+To install the MCP Server
+
+1. Clone the repository: **'git clone [LINK]
+2. 
+
+## **Usage**
+
+## **Contributing**
+
+## **License**
+
+## **Authors and Acknowledgment
+
+## **Code of Conduct**
+
+## **Conclusion**
+
+
+
+
 Ollama Start:
 ollama run llama3.2
 
@@ -12,17 +38,3 @@ then save change (command s)
 popup on source control
 enter comment about changes
 click committ
-
-
-1. Project Title and Description
-
-2. Installation
-
-3. Features
-
-4. Example Usage
-
-5. Troubleshooting
-
-6. Contributing
-
