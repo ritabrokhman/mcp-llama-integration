@@ -1,0 +1,22 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[requires]
+python_version = "3.11"
+
+[packages]
+fastapi = "*"
+uvicorn = "*"
+ollama = "*"
+pydantic = "*"
+
+[dev-packages]
+black = "*"
+pytest = "*"
+pytest-asyncio = "*"
+
+[scripts]
+start = "uvicorn server:app --reload"
+llama = "ollama run llama3.2"

@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from typing import Optional
 from fastapi.middleware.cors import CORSMiddleware
 import ollama
@@ -18,6 +20,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Serve static files
+app.mount("/frontend", StaticFiles(directory="frontend"), name="interface")
+
+# Make frontend.html accessible at root "/"
+@app.get("/")
+def get_frontend():
+    return FileResponse("frontend/interface.html")
+
 # Mock user data
 # Test tool 
 # Remove later
@@ -25,7 +35,7 @@ USERS = {
     "rita": {"name": "Rita Brokhman", "role": "Tech Architecture Analyst", "location": "Columbus"},
     "katie": {"name": "Katie Holcomb", "role": "Software Product Mgmt Manager", "location": "Columbus"},
     "sawyer": {"name": "Sawyer Cartwright", "role": "Tech Architecture Analyst", "location": "Columbus"},
-    "connor": {"name": "Connor Pletikapich", "role": "Tech Architecture Analyst", "location": "Columbus"}
+    "connor": {"name": "Connor Pletikapich", "role": "Diva", "location": "Columbus"}
 }
 
 # Request schema
@@ -39,9 +49,7 @@ class MCPRequest(BaseModel):
 # Post transfers user input for tool into respective output
 @app.post("/mcp")
 async def mcp_handler(request: MCPRequest):
-    if request.input == "hello-world":
-        return {"output": "Hello World!"}
-    elif request.input == "get-user":
+    if request.input == "get-user":
         user_id = request.parameters.get("user_id", "").lower()
         return {"output": USERS.get(user_id, {"error": "User not found"})}
     elif request.input == "list-users":
