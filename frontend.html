@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>MCP Tool Tester</title>
+    <!--Page title-->
+    <title>MCP Tool Tester</title> 
+
+    <!--Defines CSS styles (font, spacing, colors)-->
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; }
         h1, h2 { color: #333; }
@@ -10,44 +14,53 @@
         input[type="submit"] { margin-top: 10px; padding: 5px 10px; }
         pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; max-width: 700px; white-space: pre-wrap; }
     </style>
+
 </head>
+
 <body>
+    <!--Main header-->
     <h1>MCP Tool Tester</h1>
+
+    <!--Form for user input-->
     <form id="mcpForm">
+        <!--Dropdown for select tool-->
         <label for="toolSelect">Select Tool:</label>
         <select id="toolSelect" name="input">
             <option value="get-user">get-user</option>
             <option value="list-users">list-users</option>
             <option value="llama-chat">llama-chat</option>
         </select>
-
+        <!--Text input field for entering parameters for the userID tool-->
         <div id="userIdField">
             <label for="user_id">User ID (parameters.user_id):</label>
             <input type="text" id="user_id" name="user_id" value="rita">
         </div>
-
+        <!--Text input field for entering prompt for llama chat tool-->
         <div id="chatPromptField" style="display:none;">
             <label for="chat_prompt">Chat Prompt (parameters.prompt):</label>
             <input type="text" id="chat_prompt" name="chat_prompt" placeholder="Ask something...">
         </div>
-
+        <!--Submit button to send request-->
         <input type="submit" value="Send Request">
     </form>
 
+    <!--Response header-->
     <h2>Response:</h2>
     <div id="responseOutput"></div>
 
+    <!--JavaScript to handle form submission and display response-->
     <script>
+        // Options for dropdown tool selection
         const toolSelect = document.getElementById("toolSelect");
         const userIdField = document.getElementById("userIdField");
         const chatPromptField = document.getElementById("chatPromptField");
-
+        // Show/hide fields based on selected tool
         toolSelect.addEventListener("change", function() {
             const selectedTool = this.value;
             userIdField.style.display = selectedTool === "get-user" ? "block" : "none";
             chatPromptField.style.display = selectedTool === "llama-chat" ? "block" : "none";
         });
-
+        // Sends selected tool and input values to server and shows response
         document.getElementById("mcpForm").addEventListener("submit", async function(event) {
             event.preventDefault();
             const input = toolSelect.value;
