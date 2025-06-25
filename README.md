@@ -4,6 +4,9 @@ ollama run llama3.2
 Server Start:
 uvicorn server:app --reload
 
+Run Test Cases: 
+pytest test/test_cases.py
+
 
 Committ steps:
 make changes 
