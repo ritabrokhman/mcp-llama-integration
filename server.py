@@ -21,12 +21,12 @@ app.add_middleware(
 )
 
 # Serve static files
-app.mount("/frontend", StaticFiles(directory="Frontend"), name="frontend")
+app.mount("/frontend", StaticFiles(directory="frontend"), name="interface")
 
 # Make frontend.html accessible at root "/"
 @app.get("/")
 def get_frontend():
-    return FileResponse("Frontend/frontend.html")
+    return FileResponse("frontend/interface.html")
 
 # Mock user data
 # Test tool 
