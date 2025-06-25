@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from typing import Optional
 from fastapi.middleware.cors import CORSMiddleware
 import ollama
@@ -17,6 +19,14 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Serve static files
+app.mount("/frontend", StaticFiles(directory="Frontend"), name="frontend")
+
+# Make frontend.html accessible at root "/"
+@app.get("/")
+def get_frontend():
+    return FileResponse("Frontend/frontend.html")
 
 # Mock user data
 # Test tool 
