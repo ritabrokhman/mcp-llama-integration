@@ -1,23 +1,20 @@
-Ollama Start:
-ollama run llama3.2
+TODO
 
-Server Start:
-uvicorn server:app --reload
+## Installing Required Packages
 
-Run Test Cases: 
-pytest test/test_cases.py
+pip install fastapi
+pip install pydantic
+pip install uvicorn 
 
-Run the project (easiest way):
+Install the Ollama CLI from their website (https://ollama.com) OR
+pip install ollama
+
+Run the project:
 pipenv run start
-cmd + click http://127.0.0.1:8000
+MAC: cmd + click http://127.0.0.1:8000
 
-Committ steps:
-make changes 
-then save change (command s)
-    do for each file 
-popup on source control
-enter comment about changes
-click committ
+Run test cases: 
+pytest test/test_cases.py
 
 
 1. Project Title and Description
