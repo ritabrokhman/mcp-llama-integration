@@ -7,6 +7,9 @@ uvicorn server:app --reload
 Run Test Cases: 
 pytest test/test_cases.py
 
+Run the project (easiest way):
+pipenv run start
+cmd + click http://127.0.0.1:8000
 
 Committ steps:
 make changes 
