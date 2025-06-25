@@ -49,9 +49,7 @@ class MCPRequest(BaseModel):
 # Post transfers user input for tool into respective output
 @app.post("/mcp")
 async def mcp_handler(request: MCPRequest):
-    if request.input == "hello-world":
-        return {"output": "Hello World!"}
-    elif request.input == "get-user":
+    if request.input == "get-user":
         user_id = request.parameters.get("user_id", "").lower()
         return {"output": USERS.get(user_id, {"error": "User not found"})}
     elif request.input == "list-users":
