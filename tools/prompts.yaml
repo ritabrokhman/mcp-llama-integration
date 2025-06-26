@@ -1,3 +1,4 @@
+# Context for each tool's format (input and output)
 hello_world:
   template: |
     Hello World!
