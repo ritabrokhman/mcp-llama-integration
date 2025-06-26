@@ -6,6 +6,7 @@ mcp-llama-integration/
 ├── Pipfile                    # Dependencies
 ├── Pipfile.lock
 ├── Dockerfile                 # Builds and runs the app in Docker
+├── requirements.txt           # Dependencies for Docker
 │
 ├── test/                    
 │   └── test_cases.py          # Unit tests for prompt registration
