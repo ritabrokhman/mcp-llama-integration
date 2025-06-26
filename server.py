@@ -55,7 +55,7 @@ async def mcp_handler(request: MCPRequest):
     elif request.input == "list-users":
         return {"output": list(USERS.keys())}
     elif request.input == "hello-world":
-        return {"output": "hello world"}    
+        return {"output": "Hello World!"}    
     # This integrates llama3 
     elif request.input == "llama-chat":
         prompt = request.parameters.get("prompt", "")
