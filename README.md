@@ -61,7 +61,11 @@ Once everything is downloaded:
     2. Run your container:
         **'docker run -p 8000:8000 mcp-server'**
     3. Type http://localhost:8000 into a new browser tab and hit enter
-
+    4. Deleting a Docker Container: 
+        **' docker rm <container_id_or_name> '**
+    5. Deleting a Docker Images: 
+        **' docker rmi <timage_id_or_name> '**
+        
 ## **Use Cases**
 
 ## **Contributing**
