@@ -1,10 +1,7 @@
-
-RECCOMENDED STRUCTURE FROM COPILOT
-
-mcp-server/
+mcp-llama-integration/
 │
 ├── server.py                  # FastAPI app with routes
-├── interface.html             # Front-end interface (optional)
+├── interface.html             # Front-end interface for testing
 ├── README.md                  # Setup and usage instructions
 ├── Pipfile                    # Python dependencies
 ├── Pipfile.lock
@@ -17,5 +14,5 @@ mcp-server/
 │   └── prompt_service.py      # Logic for storing/managing prompts
 │
 ├── docs/                      # (you should add this)
-│   ├── prompt_authoring.md    # How to write and register prompts
+│   ├── prompt_workflows.md    # How to write and register prompts
 │   └── api_reference.md       # REST API usage guide
