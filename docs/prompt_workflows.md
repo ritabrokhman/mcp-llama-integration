@@ -24,24 +24,4 @@ Each prompt must include the following fields:
   }
 }
 
-## **Registering a Prompt with the MCP server**
-  1. Add the prompt definition to your prompt registry (e.g., a YAML or JSON file).
-  2. Ensure the server loads this file at startup or via a dynamic endpoint.
-  3. Use the prompts/list and prompts/get JSON-RPC methods to discover and invoke prompts.
-
-
-## **Example Prompt**
-  
-  ```json
-  {
-  "jsonrpc": "2.0",
-  "method": "prompts/get",
-  "params": {
-    "name": "daily_summary",
-    "arguments": {
-      "input": "Today we launched a new feature and fixed several bugs."
-    }
-  },
-  "id": 1
-}
 
