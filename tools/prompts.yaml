@@ -1,0 +1,49 @@
+hello_world:
+  template: |
+    Hello World!
+  version: "v1"
+  variables: []
+
+get_user:
+  template: |
+    Fetching user details for {{user_id}}.
+  version: "v1"
+  variables:
+    - user_id
+
+list_users:
+  template: |
+    Listing all registered users in the system.
+  version: "v1"
+  variables: []
+
+llama_chat:
+  template: |
+    {{prompt}}
+  version: "v1"
+  variables:
+    - prompt
+
+welcome_message:
+  template: |
+    Welcome, {{name}}! Your role is {{role}} and you're located in {{location}}.
+  version: "v2"
+  variables:
+    - name
+    - role
+    - location
+
+daily_summary:
+  template: |
+    Here is a summary of today's highlights:
+    {{summary_text}}
+  version: "v1"
+  variables:
+    - summary_text
+
+error_response:
+  template: |
+    Sorry, we couldn’t process your input: {{input}}.
+  version: "v1"
+  variables:
+    - input

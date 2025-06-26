@@ -1,10 +1,11 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from pydantic import BaseModel
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from typing import Optional
 from fastapi.middleware.cors import CORSMiddleware
 import ollama
+from tools.prompt_registry import register_prompt, get_prompt
 
 # Creates web app only on machine 
 app = FastAPI()
@@ -66,3 +67,14 @@ async def mcp_handler(request: MCPRequest):
         return {"output": resp["message"]["content"]}
     else:
         return {"error": f"Unknown tool: {request.input}"}
+    
+# Registering prompts
+@app.post("/prompt/register")
+async def register_prompt_api(payload: dict):
+    register_prompt(**payload)
+    return {"status": "registered"}
+
+@app.get("/prompt/{name}")
+async def get_prompt_api(name: str):
+    result = get_prompt(name)
+    return result if result else {"error": "Prompt not found"}
