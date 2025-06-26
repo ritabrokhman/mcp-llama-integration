@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request
 from pydantic import BaseModel
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
-from typing import Optional, Dict
+from typing import Any, Optional
 from fastapi.middleware.cors import CORSMiddleware
 import ollama
 from tools.prompt_registry import register_prompt, get_prompt
@@ -58,7 +58,7 @@ USERS = {
 # front end, determines what can be inputted
 class MCPRequest(BaseModel):
     input: str
-    parameters: Optional[Dict[str, str]] = {}
+    parameters: Optional[Any] = None
 
 
 # Ollama client setup
