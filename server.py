@@ -47,6 +47,10 @@ class MCPRequest(BaseModel):
     # Optional, can make not optional
     parameters: Optional[dict] = {}
 
+#Ollama client setup
+# Connects to Ollama server
+ollama_client = ollama.Client(host='http://host.docker.internal:11434')
+
 # Defines logic 
 # Post transfers user input for tool into respective output
 @app.post("/mcp")
@@ -60,14 +64,14 @@ async def mcp_handler(request: MCPRequest):
         return {"output": "Hello World!"}    
     # This integrates llama3 
     elif request.input == "llama-chat":
-      prompt_data = get_prompt_template("llama_chat")
-      template = prompt_data["template"]
-      filled_prompt = template.replace("{{prompt}}", request.parameters.get("prompt", ""))
-      resp = ollama.chat(
-        model="llama3.2",
-        messages=[{"role": "user", "content": filled_prompt}],
-      )
-      return {"output": resp["message"]["content"]}
+          prompt_data = get_prompt_template("llama_chat")
+          template = prompt_data["template"]
+          filled_prompt = template.replace("{{prompt}}", request.parameters.get("prompt", ""))
+          resp = ollama_client.chat(
+              model="llama3.2",
+              messages=[{"role": "user", "content": filled_prompt}],
+          )
+          return {"output": resp["message"]["content"]}
     else:
         return {"error": f"Unknown tool: {request.input}"}
     
