@@ -23,15 +23,18 @@ To install the MCP Server:
             **'python --version'**
 
 2. Install FastAPI
-        **'pip install fastapi'**
+    **'pip install fastapi'**
 
     Ensure FastAPI is up to date 
         **'pip install --upgrade fastapi'**
 
 3. Install Pydantic
-        **'pip install pydantic'**
+    **'pip install pydantic'**
 
-4. Download and start Ollama:
+4. Install Yaml
+    **'pipenv install pyyaml'**
+
+5. Download and start Ollama:
     Download:
         visit: https://ollama.com
         follow the installation instructions for your OS 
