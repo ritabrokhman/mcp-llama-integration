@@ -1,9 +1,9 @@
 from pydantic import BaseModel
-from typing import Dict, Any
+from typing import Dict
 
 class Prompt(BaseModel):
     name: str
     version: str
     content: str
-    variables: Dict[str, Any]
+    variables: Dict[str, str]
 
