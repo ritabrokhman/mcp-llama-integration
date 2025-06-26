@@ -6,6 +6,7 @@ from typing import Optional
 from fastapi.middleware.cors import CORSMiddleware
 import ollama
 from tools.prompt_registry import register_prompt, get_prompt
+from tools.prompt_loader import get_prompt_template
 
 # Creates web app only on machine 
 app = FastAPI()
@@ -59,12 +60,14 @@ async def mcp_handler(request: MCPRequest):
         return {"output": "Hello World!"}    
     # This integrates llama3 
     elif request.input == "llama-chat":
-        prompt = request.parameters.get("prompt", "")
-        resp = ollama.chat(
-            model="llama3.2",
-            messages=[{"role": "user", "content": prompt}],
-        )
-        return {"output": resp["message"]["content"]}
+      prompt_data = get_prompt_template("llama_chat")
+      template = prompt_data["template"]
+      filled_prompt = template.replace("{{prompt}}", request.parameters.get("prompt", ""))
+      resp = ollama.chat(
+        model="llama3.2",
+        messages=[{"role": "user", "content": filled_prompt}],
+      )
+      return {"output": resp["message"]["content"]}
     else:
         return {"error": f"Unknown tool: {request.input}"}
     
