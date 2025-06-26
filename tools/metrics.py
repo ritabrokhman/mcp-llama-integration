@@ -12,10 +12,10 @@ def init_metrics_db():
     with sqlite3.connect(DB_PATH) as conn:
         conn.execute('''
             CREATE TABLE IF NOT EXISTS metrics (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,  # Unique ID for each metric entry
-                timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,  # Automatically set timestamp
-                event_type TEXT NOT NULL,  # Type of event being logged
-                value TEXT  # Optional value associated with the event
+                id INTEGER PRIMARY KEY AUTOINCREMENT, 
+                timestamp DATETIME DEFAULT CURRENT_TIMESTAMP, 
+                event_type TEXT NOT NULL, 
+                value TEXT  
             );
         ''')
 
