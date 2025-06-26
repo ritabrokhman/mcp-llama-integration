@@ -1,7 +1,5 @@
 # **MCP Server README File**
-MCP Server Integration Framework
-OR*****
-MCP-LLaMA Integration Framework
+MCP Server -LLaMA Integration Framework
 
 ## **Introduction**
 
@@ -55,24 +53,19 @@ Once the MCP server is running, you can interact with it using any client that s
 
 ## **Contributing**
 
-## **License**
 
 ## **Authors and Acknowledgment
-Sawyer did the whole thing
-Connor and Rita watched
-
-## **Code of Conduct**
-
-## **Conclusion**
+Rita, Connor, and Sawyer
 
 
-
-
-
-Committ steps:
-make changes 
-then save change (command s)
-    do for each file 
-popup on source control
-enter comment about changes
-click committ
+## **Future Suggestions**
+    The mcp-llama-integration project is designed to be a skeleton, enabling a wide range of future applications. Here are some directions this integration can support:
+        1. Tool Expansion:
+            a. Add new tools to the tools/ directory with custom schemas and execution logic.
+            b. Support multi-step toolchains and conditional tool invocation.
+            c. Integrate with enterprise APIs, databases, or internal systems.
+        2.  Model Flexibility
+            a. Swap out LLaMA 3 for other local or hosted models (e.g., Mistral, Claude, GPT-4).
+            b. Add support for model selection and fallback strategies.
+        3. Agent Frameworks
+            a. Wrap the MCP server into a full agent runtime.
