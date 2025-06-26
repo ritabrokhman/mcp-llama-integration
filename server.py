@@ -11,10 +11,16 @@ from tools.metrics import track_latency, track_tokens, track_tool_usage, track_e
 import time
 from tools.context_storage import init_db
 from tools.context_storage import save_context
+from tools.metrics import init_metrics_db
 
 # Initialize the database
 # Use SQLite for context storage
 init_db()
+
+# Initialize the metrics database
+# Use SQLite for metrics storage
+# This is where we store tool usage, latency, and token stats
+init_metrics_db()
 
 # Creates web app only on machine 
 app = FastAPI()
