@@ -9,6 +9,12 @@ from tools.prompt_registry import register_prompt, get_prompt
 from tools.prompt_loader import get_prompt_template
 from tools.metrics import track_latency, track_tokens, track_tool_usage, track_error, track_context_hit, get_metrics
 import time
+from tools.context_storage import init_db
+from tools.context_storage import save_context
+
+# Initialize the database
+# Use SQLite for context storage
+init_db()
 
 # Creates web app only on machine 
 app = FastAPI()
@@ -51,7 +57,8 @@ class MCPRequest(BaseModel):
 
 # Ollama client setup
 # Connects to Ollama server
-ollama_client = ollama.Client(host='http://host.docker.internal:11434')
+ollama_client = ollama.Client(host='http://127.0.0.1:11434')
+# ollama_client = ollama.Client(host='http://host.docker.internal:11434')
 
 # Defines logic 
 # Post transfers user input for tool into respective output
@@ -96,7 +103,7 @@ async def mcp_handler(request: MCPRequest):
             filled_prompt = template.replace("{{prompt}}", prompt)
 
             # Call the model
-            resp = ollama.chat(
+            resp = ollama_client.chat(
                 model="llama3.2",
                 messages=[{"role": "user", "content": filled_prompt}],
             )
@@ -105,6 +112,13 @@ async def mcp_handler(request: MCPRequest):
             prompt_tokens = len(filled_prompt.split())
             response_tokens = len(resp["message"]["content"].split())
             track_tokens(prompt_tokens, response_tokens)
+
+            # Save to SQLite
+            save_context(
+             tool_name="llama-chat",
+             user_id=request.parameters.get("user_id", "anonymous"),
+             prompt=prompt,
+             response=resp["message"]["content"])
 
             return {"output": resp["message"]["content"]}
 
