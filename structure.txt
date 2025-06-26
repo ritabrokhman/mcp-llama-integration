@@ -1,18 +1,18 @@
 mcp-llama-integration/
 │
-├── server.py                  # FastAPI app with routes
+├── server.py                  # FastAPI app with routes. Starts the server
 ├── interface.html             # Front-end interface for testing
 ├── README.md                  # Setup and usage instructions
-├── Pipfile                    # Python dependencies
+├── Pipfile                    # Dependencies
 ├── Pipfile.lock
-├── Dockerfile                 # (you still need to add this)
+├── Dockerfile                 # Builds and runs the app in Docker
 │
-├── models/                    # (you should add this)
-│   └── prompt_model.py        # Pydantic model for prompt schema
+├── models/                    
+│   └── prompt_model.py        # Defines what prompt should look like
 │
-├── services/                  # (you should add this)
-│   └── prompt_service.py      # Logic for storing/managing prompts
+├── services/                  
+│   └── prompt_service.py      # Stores and manages project
 │
-├── docs/                      # (you should add this)
+├── docs/                      
 │   ├── prompt_workflows.md    # How to write and register prompts
 │   └── api_reference.md       # REST API usage guide
