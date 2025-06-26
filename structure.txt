@@ -1,0 +1,21 @@
+
+RECCOMENDED STRUCTURE FROM COPILOT
+
+mcp-server/
+│
+├── server.py                  # FastAPI app with routes
+├── interface.html             # Front-end interface (optional)
+├── README.md                  # Setup and usage instructions
+├── Pipfile                    # Python dependencies
+├── Pipfile.lock
+├── Dockerfile                 # (you still need to add this)
+│
+├── models/                    # (you should add this)
+│   └── prompt_model.py        # Pydantic model for prompt schema
+│
+├── services/                  # (you should add this)
+│   └── prompt_service.py      # Logic for storing/managing prompts
+│
+├── docs/                      # (you should add this)
+│   ├── prompt_authoring.md    # How to write and register prompts
+│   └── api_reference.md       # REST API usage guide

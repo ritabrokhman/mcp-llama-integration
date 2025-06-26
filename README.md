@@ -54,7 +54,6 @@ Once the MCP server is running, you can interact with it using any client that s
 
 ## **Contributing**
 
-
 ## **Authors and Acknowledgment
 Rita Brokhman, Connor Pletikapich, and Sawyer Cartwright
 
