@@ -1,47 +1,49 @@
-import time
+import sqlite3
 from datetime import datetime
-from collections import defaultdict
 
-LOG_FILE = "metrics.log"
+DB_PATH = "context.db"
 
-metrics = {
-    "latency": [],
-    "token_counts": [],
-    "tool_usage": defaultdict(int),
-    "errors": 0,
-    "context_hits": 0,
-    "context_misses": 0
-}
+def init_metrics_db():
+    with sqlite3.connect(DB_PATH) as conn:
+        conn.execute('''
+            CREATE TABLE IF NOT EXISTS metrics (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+                event_type TEXT NOT NULL,
+                value TEXT
+            );
+        ''')
 
-def _log_to_file(message: str):
-    timestamp = datetime.now().isoformat()
-    with open(LOG_FILE, "a") as f:
-        f.write(f"[{timestamp}] {message}\n")
+def log_event(event_type: str, value: str = ""):
+    with sqlite3.connect(DB_PATH) as conn:
+        conn.execute('''
+            INSERT INTO metrics (event_type, value)
+            VALUES (?, ?)
+        ''', (event_type, value))
 
-def track_latency(start_time):
-    latency = round(time.time() - start_time, 4)
-    metrics["latency"].append(latency)
-    _log_to_file(f"Latency: {latency}s")
+def track_tool_usage(tool_name: str):
+    log_event("Tool used", tool_name)
 
-def track_tokens(prompt_tokens, response_tokens):
-    metrics["token_counts"].append((prompt_tokens, response_tokens))
-    _log_to_file(f"Tokens - Prompt: {prompt_tokens}, Response: {response_tokens}")
+def track_context_hit(hit: bool):
+    log_event("Context HIT" if hit else "Context MISS")
 
-def track_tool_usage(tool_name):
-    metrics["tool_usage"][tool_name] += 1
-    _log_to_file(f"Tool used: {tool_name}")
+def track_tokens(prompt_tokens: int, response_tokens: int):
+    log_event("Tokens - Prompt", str(prompt_tokens))
+    log_event("Tokens - Response", str(response_tokens))
+
+def track_latency(start_time: float):
+    latency = round(datetime.now().timestamp() - start_time, 4)
+    log_event("Latency", f"{latency}s")
 
 def track_error():
-    metrics["errors"] += 1
-    _log_to_file("Error occurred")
+    log_event("Error occurred")
 
-def track_context_hit(hit=True):
-    if hit:
-        metrics["context_hits"] += 1
-        _log_to_file("Context HIT")
-    else:
-        metrics["context_misses"] += 1
-        _log_to_file("Context MISS")
-
-def get_metrics():
-    return metrics
+def get_metrics(limit=100):
+    with sqlite3.connect(DB_PATH) as conn:
+        cursor = conn.execute('''
+            SELECT timestamp, event_type, value
+            FROM metrics
+            ORDER BY timestamp DESC
+            LIMIT ?
+        ''', (limit,))
+        return cursor.fetchall()
