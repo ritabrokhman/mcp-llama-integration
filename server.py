@@ -47,7 +47,7 @@ class MCPRequest(BaseModel):
     # Optional, can make not optional
     parameters: Optional[dict] = {}
 
-#Ollama client setup
+# Ollama client setup
 # Connects to Ollama server
 ollama_client = ollama.Client(host='http://host.docker.internal:11434')
 
