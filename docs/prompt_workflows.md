@@ -1,6 +1,5 @@
 # Prompt Authoring Guide
 
-
 This guide explains how to write and register prompts for the MCP server, enabling structured and reusable interactions with LLaMA 3 via the Model Context Protocol (MCP).
 
 ## Prompt Structure
@@ -23,5 +22,3 @@ Each prompt must include the following fields:
     "input": "The text to summarize"
   }
 }
-
-
