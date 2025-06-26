@@ -16,6 +16,7 @@ Whether you're building intelligent assistants, automating workflows, or experim
 
 ## **Project Structure**
 
+Project structure is defined inside **'structure.txt'**.
 
 ## **Installation**
 
@@ -47,7 +48,7 @@ To install the MCP Server:
     Once pulled run the model:
         **'ollama run llama3.2'**
 
-5. Start the server: 
+5. Start the server locally: 
     **'pipenv run start'**
 
 ## **Usage**
@@ -68,7 +69,19 @@ Once everything is downloaded:
         
 ## **Use Cases**
 
+1. Internal tooling agents using LLaMA with custom context
+2. Prompt-driven workflows for non-technical users
+3. Agent backends for enterprise LLM applications
+4. Interactive knowledge retrieval from your tools, not just text
+
 ## **Contributing**
+
+To contribute:
+
+1. Fork the repo
+2. Create a feature branch
+3. Submit a pull request with a clear description
+4. Tag a maintainer for review
 
 ## **Authors and Acknowledgment
 
