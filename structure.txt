@@ -7,6 +7,9 @@ mcp-llama-integration/
 ├── Pipfile.lock
 ├── Dockerfile                 # Builds and runs the app in Docker
 │
+├── test/                    
+│   └── test_cases.py          # Unit tests for prompt registration
+│
 ├── models/                    
 │   └── prompt_model.py        # Defines what prompt should look like
 │
