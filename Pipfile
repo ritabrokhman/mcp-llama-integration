@@ -19,5 +19,5 @@ pytest = "*"
 pytest-asyncio = "*"
 
 [scripts]
-start = "uvicorn server:app --reload"
+start = "uvicorn server:app --reload --host 127.0.0.1"
 llama = "ollama run llama3.2"
