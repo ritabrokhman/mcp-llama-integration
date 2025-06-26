@@ -1,4 +1,5 @@
 # **MCP Server README File**
+
 MCP Server -LLaMA Integration Framework
 
 ## **Introduction**
@@ -12,6 +13,35 @@ Define and expose tools with structured metadata for LLM invocation.
 Handle tool execution, context injection, and response transformation.
 Build a scalable, secure, and extensible server architecture for AI agents.
 Whether you're building intelligent assistants, automating workflows, or experimenting with tool-augmented LLMs, this project offers a practical foundation for deploying LLaMA in real-world, tool-rich environments.
+
+## **Project Structure**
+
+mcp-llama-integration/
+│
+├── main.py                     # Entry point for starting the FastAPI server
+├── config.yaml                 # Configuration file for tool definitions and server settings
+│
+├── tools/                      # Directory for custom tool definitions
+│   ├── __init__.py
+│   ├── tool_example.py         # Example tool with schema and logic
+│   └── ...                     # Add your own tools here
+│
+├── server/                     # Core server logic and routing
+│   ├── __init__.py
+│   ├── handlers.py             # JSON-RPC method handlers
+│   ├── tool_router.py          # Routes tool invocations to logic
+│   └── context_manager.py      # Handles context injection and retrieval
+│
+├── models/                     # Pydantic models for request/response validation
+│   ├── __init__.py
+│   └── schemas.py
+│
+├── tests/                      # Unit and integration tests
+│   └── test_tools.py
+│
+├── Dockerfile                  # Docker build instructions
+├── README.md                   # Project documentation
+└── requirements.txt            # Python dependencies
 
 ## **Installation**
 
@@ -50,14 +80,23 @@ To install the MCP Server:
 
 Once the MCP server is running, you can interact with it using any client that supports JSON-RPC 2.0. The server listens for requests that invoke tools or retrieve context, and routes them to the appropriate logic handlers.
 
+Docker Access: 
+Once everything is downloaded:
+    1. Build Docker Image: 
+        **'build -t mcp-server'**
+    2. Run your container:
+        **'docker run -p 8000:8000 mcp-server'**
+
 ## **Use Cases**
 
 ## **Contributing**
 
 ## **Authors and Acknowledgment
+
 Rita Brokhman, Connor Pletikapich, and Sawyer Cartwright
 
 ## **Future Suggestions**
+
 The mcp-llama-integration project is designed to be a skeleton, enabling a wide range of future applications. Here are some directions this integration can support:
 1. Tool Expansion:
     - Add new tools to the tools/ directory with custom schemas and execution logic.
