@@ -16,32 +16,6 @@ Whether you're building intelligent assistants, automating workflows, or experim
 
 ## **Project Structure**
 
-mcp-llama-integration/
-│
-├── main.py                     # Entry point for starting the FastAPI server
-├── config.yaml                 # Configuration file for tool definitions and server settings
-│
-├── tools/                      # Directory for custom tool definitions
-│   ├── __init__.py
-│   ├── tool_example.py         # Example tool with schema and logic
-│   └── ...                     # Add your own tools here
-│
-├── server/                     # Core server logic and routing
-│   ├── __init__.py
-│   ├── handlers.py             # JSON-RPC method handlers
-│   ├── tool_router.py          # Routes tool invocations to logic
-│   └── context_manager.py      # Handles context injection and retrieval
-│
-├── models/                     # Pydantic models for request/response validation
-│   ├── __init__.py
-│   └── schemas.py
-│
-├── tests/                      # Unit and integration tests
-│   └── test_tools.py
-│
-├── Dockerfile                  # Docker build instructions
-├── README.md                   # Project documentation
-└── requirements.txt            # Python dependencies
 
 ## **Installation**
 
