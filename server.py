@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request
 from pydantic import BaseModel
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
-from typing import Optional
+from typing import Any, Optional
 from fastapi.middleware.cors import CORSMiddleware
 import ollama
 from tools.prompt_registry import register_prompt, get_prompt
@@ -11,10 +11,16 @@ from tools.metrics import track_latency, track_tokens, track_tool_usage, track_e
 import time
 from tools.context_storage import init_db
 from tools.context_storage import save_context
+from tools.metrics import init_metrics_db
 
 # Initialize the database
 # Use SQLite for context storage
 init_db()
+
+# Initialize the metrics database
+# Use SQLite for metrics storage
+# This is where we store tool usage, latency, and token stats
+init_metrics_db()
 
 # Creates web app only on machine 
 app = FastAPI()
@@ -52,8 +58,7 @@ USERS = {
 # front end, determines what can be inputted
 class MCPRequest(BaseModel):
     input: str
-    # Optional, can make not optional
-    parameters: Optional[dict] = {}
+    parameters: Optional[Any] = None
 
 # Ollama client setup
 # Connects to Ollama server
