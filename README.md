@@ -43,7 +43,7 @@ To install the MCP Server:
     **'ollama run llama3.2'**
 
 5. Start the server: 
-    uvicorn server:app --reload
+    **'pipenv run start'**
 
 
 
