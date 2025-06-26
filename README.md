@@ -60,6 +60,7 @@ Once everything is downloaded:
         **'build -t mcp-server'**
     2. Run your container:
         **'docker run -p 8000:8000 mcp-server'**
+    3. Type http://localhost:8000 into a new browser tab and hit enter
 
 ## **Use Cases**
 
