@@ -1,15 +1,15 @@
 mcp-llama-integration/
 │
-├── server.py                  # FastAPI app with routes. Starts the server
-├── interface.html             # Front-end interface for testing
+├── server.py                  # Backend entry-point. FastAPI app with routes. Starts the server
+├── interface.html             # Front-end interface for testing/demo
 ├── README.md                  # Setup and usage instructions
-├── Pipfile                    # Dependencies
+├── Pipfile                    # Packages
 ├── Pipfile.lock
 ├── Dockerfile                 # Builds and runs the app in Docker
 ├── requirements.txt           # Dependencies for Docker
 │
 ├── test/                    
-│   └── test_cases.py          # Unit tests for prompt registration
+│   └── test_cases.py          # Unit tests 
 │
 ├── models/                    
 │   └── prompt_model.py        # Defines what prompt should look like
