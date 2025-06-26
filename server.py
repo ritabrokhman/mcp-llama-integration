@@ -60,6 +60,7 @@ class MCPRequest(BaseModel):
     input: str
     parameters: Optional[Any] = None
 
+
 # Ollama client setup
 # Connects to Ollama server
 ollama_client = ollama.Client(host='http://127.0.0.1:11434')
