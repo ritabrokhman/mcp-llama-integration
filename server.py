@@ -35,7 +35,7 @@ USERS = {
     "rita": {"name": "Rita Brokhman", "role": "Tech Architecture Analyst", "location": "Columbus"},
     "katie": {"name": "Katie Holcomb", "role": "Software Product Mgmt Manager", "location": "Columbus"},
     "sawyer": {"name": "Sawyer Cartwright", "role": "Tech Architecture Analyst", "location": "Columbus"},
-    "connor": {"name": "Connor Pletikapich", "role": "Diva", "location": "Columbus"}
+    "connor": {"name": "Connor Pletikapich", "role": "Tech Architecture Analyst", "location": "Columbus"}
 }
 
 # Request schema
@@ -52,6 +52,8 @@ async def mcp_handler(request: MCPRequest):
     if request.input == "get-user":
         user_id = request.parameters.get("user_id", "").lower()
         return {"output": USERS.get(user_id, {"error": "User not found"})}
+    elif request.input == "list-users":
+        return {"output": list(USERS.keys())}
     elif request.input == "hello-world":
         return {"output": "hello world"}    
     # This integrates llama3 
