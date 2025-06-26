@@ -53,13 +53,32 @@
     ul {
         font-size: 14px; 
     }
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* centers horizontally */
+    align-items: flex-start; /* aligns to top */
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    }
+    .container {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 40px; /* spacing from top */
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
     </style>
 
 </head>
 
 <body>
+    <div class = "container">
     <!--Main header-->
-    <h1>MCP Tool Tester</h1>
+    <h1 style="text-align: center;">MCP Tool Tester</h1>
 
     <!--Form for user input-->
     <form id="mcpForm">
@@ -88,6 +107,7 @@
     <!--Response header-->
     <h2>Response:</h2>
     <div id="responseOutput"></div>
+    </div>
 
     <!--JavaScript to handle form submission and display response-->
     <script>
