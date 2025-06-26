@@ -12,3 +12,29 @@
 [2025-06-26T14:41:11.614670] Context HIT
 [2025-06-26T14:41:15.651320] Tokens - Prompt: 7, Response: 235
 [2025-06-26T14:41:15.659157] Latency: 4.0576s
+[2025-06-26T14:44:38.919774] Tool used: hello-world
+[2025-06-26T14:44:38.920281] Latency: 0.0005s
+[2025-06-26T14:44:42.747309] Tool used: list-users
+[2025-06-26T14:44:42.747964] Latency: 0.0007s
+[2025-06-26T14:44:51.087714] Tool used: get-user
+[2025-06-26T14:44:51.096161] Latency: 0.0084s
+[2025-06-26T14:45:04.828931] Tool used: llama-chat
+[2025-06-26T14:45:04.852309] Context HIT
+[2025-06-26T14:45:07.109325] Tokens - Prompt: 6, Response: 17
+[2025-06-26T14:45:07.110968] Latency: 2.282s
+[2025-06-26T14:45:16.352046] Tool used: llama-chat
+[2025-06-26T14:45:16.359399] Context HIT
+[2025-06-26T14:45:17.530031] Tokens - Prompt: 4, Response: 62
+[2025-06-26T14:45:17.532807] Latency: 1.1808s
+[2025-06-26T14:46:11.038813] Tool used: llama-chat
+[2025-06-26T14:46:11.053937] Context HIT
+[2025-06-26T14:46:12.909462] Tokens - Prompt: 4, Response: 102
+[2025-06-26T14:46:12.909906] Latency: 1.8711s
+[2025-06-26T14:46:25.143017] Tool used: llama-chat
+[2025-06-26T14:46:25.148717] Context HIT
+[2025-06-26T14:46:27.757617] Tokens - Prompt: 5, Response: 109
+[2025-06-26T14:46:27.757870] Latency: 2.6149s
+[2025-06-26T14:46:54.033281] Tool used: llama-chat
+[2025-06-26T14:46:54.044355] Context HIT
+[2025-06-26T14:46:59.277346] Tokens - Prompt: 12, Response: 322
+[2025-06-26T14:46:59.291637] Latency: 5.2583s
