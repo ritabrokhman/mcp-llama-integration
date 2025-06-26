@@ -19,31 +19,29 @@ To install the MCP Server:
 
 1. Ensure Python 3 is intalled
     Make sure Python 3.1 or higher is installed
-    Verify
-        **'python --version'**
+        Verify:
+            **'python --version'**
 
 2. Install FastAPI
-    **'pip install fastapi'**
+        **'pip install fastapi'**
 
     Ensure FastAPI is up to date 
         **'pip install --upgrade fastapi'**
 
 3. Install Pydantic
-    **'pip install pydantic'**
+        **'pip install pydantic'**
 
 4. Download and start Ollama:
     Download:
         visit: https://ollama.com
         follow the installation instructions for your OS 
     Once installed, pull the model:
-       **'ollama pull llama3 '**
+        **'ollama pull llama3 '**
     Once pulled run the model:
-    **'ollama run llama3.2'**
+        **'ollama run llama3.2'**
 
 5. Start the server: 
     **'pipenv run start'**
-
-
 
 ## **Usage**
 
@@ -55,17 +53,16 @@ Once the MCP server is running, you can interact with it using any client that s
 
 
 ## **Authors and Acknowledgment
-Rita, Connor, and Sawyer
-
+Rita Brokhman, Connor Pletikapich, and Sawyer Cartwright
 
 ## **Future Suggestions**
-    The mcp-llama-integration project is designed to be a skeleton, enabling a wide range of future applications. Here are some directions this integration can support:
-        1. Tool Expansion:
-            a. Add new tools to the tools/ directory with custom schemas and execution logic.
-            b. Support multi-step toolchains and conditional tool invocation.
-            c. Integrate with enterprise APIs, databases, or internal systems.
-        2.  Model Flexibility
-            a. Swap out LLaMA 3 for other local or hosted models (e.g., Mistral, Claude, GPT-4).
-            b. Add support for model selection and fallback strategies.
-        3. Agent Frameworks
-            a. Wrap the MCP server into a full agent runtime.
+The mcp-llama-integration project is designed to be a skeleton, enabling a wide range of future applications. Here are some directions this integration can support:
+1. Tool Expansion:
+    a. Add new tools to the tools/ directory with custom schemas and execution logic.
+    b. Support multi-step toolchains and conditional tool invocation.
+    c. Integrate with enterprise APIs, databases, or internal systems.
+2.  Model Flexibility
+    a. Swap out LLaMA 3 for other local or hosted models
+    b. Add support for model selection and fallback strategies.
+3. Agent Frameworks
+    a. Wrap the MCP server into a full agent runtime.
