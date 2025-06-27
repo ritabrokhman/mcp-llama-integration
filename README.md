@@ -66,6 +66,19 @@ Once everything is downloaded:
         **' docker rm <container_id_or_name> '**
     5. Deleting a Docker Images: 
         **' docker rmi <timage_id_or_name> '**
+
+To view the Metrics use these commands in the terminal:
+    1. SELECT * 
+    2. FROM metrics 
+    3. ORDER BY timestamp 
+    4. DESC LIMIT 10 (optional)
+
+To view the Database use these commands in the terminal:
+    1. sqlite3 context.db
+    2. SELECT *
+    3. FROM context
+
+
         
 ## **Use Cases**
 

@@ -1,22 +1,36 @@
 mcp-llama-integration/
 │
-├── server.py                  # Backend entry-point. FastAPI app with routes. Starts the server
-├── interface.html             # Front-end interface for testing/demo
-├── README.md                  # Setup and usage instructions
-├── Pipfile                    # Packages
-├── Pipfile.lock
-├── Dockerfile                 # Builds and runs the app in Docker
-├── requirements.txt           # Dependencies for Docker
+├── server.py                  # Main backend entry point. Initializes and runs the FastAPI server with defined routes.
 │
-├── test/                    
-│   └── test_cases.py          # Unit tests 
+├── frontend/
+│   └── interface.html         # Simple front-end interface for testing or demoing the integration layer.
+│
+├── README.md                  # Documentation for setup, usage, and project overview.
+├── Pipfile                    # Dependency manager file for pipenv, listing required packages.
+├── Pipfile.lock               # Locked versions of dependencies to ensure consistent environments.
+├── Dockerfile                 # Docker configuration to containerize and run the app.
+├── requirements.txt           # List of Python dependencies for Docker builds or pip installs.
+├── context.db                 # Local SQLite database used for storing context or prompt history.
+├── .gitignore                 # Specifies files and directories to be ignored by Git version control.
+│
+├── test/                     
+│   └── test_cases.py          # Unit tests for validating tool behavior and integration logic.
 │
 ├── models/                    
-│   └── prompt_model.py        # Defines what prompt should look like
+│   └── prompt_model.py        # Defines the data model/schema for prompts used in the system.
 │
 ├── services/                  
-│   └── prompt_service.py      # Stores and manages project
+│   └── prompt_service.py      # Business logic for managing prompts—creation, retrieval, and updates.
 │
 ├── docs/                      
-│   ├── prompt_workflows.md    # How to write and register prompts
-│   └── api_reference.md       # REST API usage guide
+│   ├── prompt_workflows.md    # Guide on how to write, structure, and register prompts in the system.
+│   └── api_reference.md       # Reference documentation for the REST API endpoints.
+│
+├── tools/                     
+│   ├── __init__.py            # Initializes the tools module for Python imports.
+│   ├── context_storage.py     # Handles saving and retrieving context data (e.g., from vector stores or DB).
+│   ├── metrics.py             # Tracks and reports performance metrics or usage statistics.
+│   ├── prompt_loader.py       # Loads and parses prompt definitions from YAML or other sources.
+│   ├── prompt_registry.py     # Registers and manages available prompts/tools for execution.
+│   ├── prompts.yaml           # YAML configuration file defining available prompts and their metadata.
+│   └── todo.py                # Placeholder or WIP module for future tool implementations or tasks.
