@@ -83,7 +83,7 @@ To contribute:
 3. Submit a pull request with a clear description
 4. Tag a maintainer for review
 
-## **Authors and Acknowledgment
+## **Authors and Acknowledgment**
 
 Rita Brokhman, Connor Pletikapich, and Sawyer Cartwright
 
