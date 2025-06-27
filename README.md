@@ -68,17 +68,20 @@ Once everything is downloaded:
         **' docker rmi <timage_id_or_name> '**
 
 To view the Metrics use these commands in the terminal:
-    1. SELECT * 
-    2. FROM metrics 
-    3. ORDER BY timestamp 
-    4. DESC LIMIT 10 (optional)
+    1. sqlite3 context.db
+    2. SELECT * 
+    3. FROM metrics 
+    4. ORDER BY timestamp
+    5. DESC LIMIT 10 (optional)
+
+    In one line: SELECT * FROM metrics ORDER BY timestamp;
 
 To view the Database use these commands in the terminal:
     1. sqlite3 context.db
     2. SELECT *
     3. FROM context
 
-
+    In one line: SELECT * FROM context;
         
 ## **Use Cases**
 
